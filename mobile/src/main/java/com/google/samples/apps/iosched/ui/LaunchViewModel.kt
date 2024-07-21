@@ -46,6 +46,12 @@ class LaunchViewModel @Inject constructor(
 }
 
 sealed class LaunchNavigatonAction {
+    /*
+    * 进入用户引导
+    * */
     object NavigateToOnboardingAction : LaunchNavigatonAction()
+    /*
+    * 进入首页
+    * */
     object NavigateToMainActivityAction : LaunchNavigatonAction()
 }

@@ -56,6 +56,7 @@ fun slideOffsetToAlpha(value: Float, rangeMin: Float, rangeMax: Float): Float {
 /**
  * Launches a new coroutine and repeats `block` every time the Fragment's viewLifecycleOwner
  * is in and out of `minActiveState` lifecycle state.
+ * crossinline 修饰符确保该参数中的代码不会直接或间接地非局部返回。
  */
 inline fun Fragment.launchAndRepeatWithViewLifecycle(
     minActiveState: Lifecycle.State = Lifecycle.State.STARTED,

@@ -43,6 +43,10 @@ import javax.inject.Singleton
  * Storage for app and user preferences.
  */
 interface PreferenceStorage {
+    /*
+    *  是否完成了用户引导
+    *
+    * */
     suspend fun completeOnboarding(complete: Boolean)
     val onboardingCompleted: Flow<Boolean>
 

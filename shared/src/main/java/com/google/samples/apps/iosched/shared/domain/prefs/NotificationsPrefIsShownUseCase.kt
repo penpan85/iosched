@@ -25,6 +25,7 @@ import kotlinx.coroutines.flow.first
 
 /**
  * Returns whether the notifications preference has been shown to the user.
+ * 该函数用于判断是否已经向用户显示了通知偏好设置。
  */
 open class NotificationsPrefIsShownUseCase @Inject constructor(
     private val preferenceStorage: PreferenceStorage,

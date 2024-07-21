@@ -69,6 +69,9 @@ class AppModule {
         context.applicationContext.getSystemService(Context.CLIPBOARD_SERVICE)
             as ClipboardManager
 
+    /*
+    * 全局的协程作用域，适用于计算性的工作任务，使用Supervisor保证内部任务失败不会影响外部任务
+    * */
     @ApplicationScope
     @Singleton
     @Provides
@@ -76,11 +79,17 @@ class AppModule {
         @DefaultDispatcher defaultDispatcher: CoroutineDispatcher
     ): CoroutineScope = CoroutineScope(SupervisorJob() + defaultDispatcher)
 
+    /*
+    * 封装了主线程handler，用于在主线程执行任务
+    * */
     @Singleton
     @Provides
     @MainThreadHandler
     fun provideMainThreadHandler(): IOSchedHandler = IOSchedMainHandler()
 
+    /*
+    * 打点库，封装成接口，方便测试以及模块隔离
+    * */
     @Singleton
     @Provides
     fun provideAnalyticsHelper(

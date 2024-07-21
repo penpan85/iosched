@@ -27,6 +27,9 @@ import javax.inject.Singleton
 @Module
 class FeatureFlagsModule {
 
+    /**
+     * Provides a flag that indicates whether the Explore AR feature is enabled.
+     */
     @Provides
     @Singleton
     @ExploreArEnabledFlag
@@ -34,42 +37,63 @@ class FeatureFlagsModule {
         return appConfig.isExploreArFeatureEnabled()
     }
 
+    /**
+     * Provides a flag that indicates whether the Map feature is enabled.
+     */
     @Provides
     @MapFeatureEnabledFlag
     fun provideMapFeatureEnabledFlag(appConfig: AppConfigDataSource): Boolean {
         return appConfig.isMapFeatureEnabled()
     }
 
+    /**
+     * Provides a flag that indicates whether the Codelabs feature is enabled.
+     */
     @Provides
     @CodelabsEnabledFlag
     fun provideCodelabsEnabledFlag(appConfig: AppConfigDataSource): Boolean {
         return appConfig.isCodelabsFeatureEnabled()
     }
 
+    /**
+     * Provides a flag that indicates whether the Search Schedule feature is enabled.
+     */
     @Provides
     @SearchScheduleEnabledFlag
     fun provideSearchScheduleEnabledFlag(appConfig: AppConfigDataSource): Boolean {
         return appConfig.isSearchScheduleFeatureEnabled()
     }
 
+    /**
+     * Provides a flag that indicates whether the Search feature uses Room.
+     */
     @Provides
     @SearchUsingRoomEnabledFlag
     fun provideSearchUsingRoomEnabledFlag(appConfig: AppConfigDataSource): Boolean {
         return appConfig.isSearchUsingRoomFeatureEnabled()
     }
 
+    /**
+     * Provides a flag that indicates whether the I/O app for Google Assistant callout is enabled.
+     */
     @Provides
     @AssistantAppEnabledFlag
     fun provideAssistantAppEnabledFlag(appConfig: AppConfigDataSource): Boolean {
         return appConfig.isAssistantAppFeatureEnabled()
     }
 
+    /**
+     * Provides a flag that indicates whether the reservation feature is enabled.
+     */
     @Provides
     @ReservationEnabledFlag
     fun provideReservationEnabledFlag(appConfig: AppConfigDataSource): Boolean {
         return appConfig.isReservationFeatureEnabled()
     }
 
+    /**
+     * Provides a flag that indicates whether the Feed feature is enabled.
+     */
     @Provides
     @FeedEnabledFlag
     fun provideFeedEnabledFlag(appConfig: AppConfigDataSource): Boolean {
